@@ -498,6 +498,7 @@ input, select {
   
   .tarjeta-articulo img {
     width: 100%;
+    cursor: pointer;
   }
   
   .tarjeta-articulo h3 {
@@ -750,6 +751,7 @@ input, select {
 .noticia-imagen img
 {
   position: relative;
+  cursor: pointer;
 }
 .noticia-contenido
 {

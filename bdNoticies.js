@@ -1,4 +1,3 @@
-
 const bd = 
 [
     {
@@ -52,3 +51,4 @@ function mostrarNoticias() {
 document.addEventListener("DOMContentLoaded", function() {
     mostrarNoticias();
 });
+
