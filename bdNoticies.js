@@ -45,7 +45,7 @@ function mostrarNoticias() {
             </div>
         </div>`;
     }
-    document.getElementById("news").innerHTML = noticias;
+    document.querySelector("#news").innerHTML = noticias;
 }
 
 document.addEventListener("DOMContentLoaded", function() {

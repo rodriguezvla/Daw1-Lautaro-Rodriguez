@@ -1,4 +1,15 @@
+const boton = document.querySelector(".contenedor-articulos .boton-explorar");
 
+boton.addEventListener("click",function(e){
+e.preventDefault(); window.location.href = "news.html";})
+
+const imagenesArticulos = document.querySelectorAll(".tarjeta-articulo img");
+
+imagenesArticulos.forEach(function(imagen, indice) {
+    imagen.addEventListener("click", function() {
+        window.location.href = `detallNoticia.html?id=${indice}`;
+    });
+});
 
 const bd = 
 [
@@ -33,29 +44,20 @@ const bd =
     },
 ]
 
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
-
-function mostrarArticulo() {
-    const articulo = bd[id];
-    if (articulo) {
-        const contenido = 
-        `<div class="noticia">
-            <div class="noticia-imagen">
-                <img src="${articulo.imagen}" alt="noticia">
-            </div>
-            <div class="noticia-contenido">
-                <h2>${articulo.titulo}</h2>
-                <p>${articulo.descripcion}</p>
+function mostrarNoticias() {
+    let noticias = "";
+    for (let i = 0; i <= 3; i++) {
+        noticias += 
+        `<div class="tarjeta-articulo">
+        <div class="noticia-imagen">
+            <img src="${bd[i+1].imagen}" alt="noticia class="imagen-articulo">
+        </div>
+        <div class="noticia-contenido">
+            <h2>${bd[i+1].titulo}</h2>
+            <p>${bd[i+1].descripcion}</p>
             </div>
         </div>`;
-        document.querySelector("#news").innerHTML = contenido;
-    } else {
-        document.querySelector("#news").innerHTML = "<p>Artículo no encontrado.</p>";
     }
+    document.querySelector("#latest-articles . grid-articulos").innerHTML = noticias;
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    mostrarArticulo();
-});
 
