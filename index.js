@@ -48,7 +48,7 @@ function mostrarNoticias() {
            <img src="${bd[i].imagen}" alt="noticia class="imagen-articulo">
           <h2>${bd[i].titulo}</h2>
             <p>${bd[i].descripcion}</p>
-          <a href="#" class="enlace-articulo">Read</a>
+          <a href="detallNoticia.html?id=${i}" class="enlace-articulo">Read</a>
         </div>`;
     }
     document.querySelector(".grid-articulos").innerHTML = noticias;
@@ -62,7 +62,7 @@ for(let i = 0; i < bd.length; i++) {
 
     imagenesArticulos[i].addEventListener("click", function() {
     window.location.href = `detallNoticia.html?id=${i}`;
-    
+
 });
 };
 

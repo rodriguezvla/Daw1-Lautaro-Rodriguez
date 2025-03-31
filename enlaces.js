@@ -52,8 +52,4 @@ function mostrarArticulo() {
         document.querySelector("#news").innerHTML = contenido;
     }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
     mostrarArticulo();
-});
-

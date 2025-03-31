@@ -48,7 +48,14 @@ function mostrarNoticias() {
     document.querySelector("#news").innerHTML = noticias;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    mostrarNoticias();
-});
+mostrarNoticias();
 
+const imagenesArticulos = document.querySelectorAll(".noticia-imagen img");
+
+for(let i = 0; i < bd.length; i++) {
+
+    imagenesArticulos[i].addEventListener("click", function() {
+    window.location.href = `detallNoticia.html?id=${i}`;
+
+});
+};
