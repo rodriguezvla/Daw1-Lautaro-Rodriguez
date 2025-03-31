@@ -50,8 +50,6 @@ function mostrarArticulo() {
             </div>
         </div>`;
         document.querySelector("#news").innerHTML = contenido;
-    } else {
-        document.querySelector("#news").innerHTML = "<p>Artículo no encontrado.</p>";
     }
 }
 
