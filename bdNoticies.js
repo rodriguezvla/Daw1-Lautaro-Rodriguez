@@ -1,4 +1,4 @@
-const bd = 
+/*const bd = 
 [
     {
     titulo: "Sed nec lorem scelerisque, viverra ex ut, interdum massa.",
@@ -59,3 +59,4 @@ for(let i = 0; i < bd.length; i++) {
 
 });
 };
+*/

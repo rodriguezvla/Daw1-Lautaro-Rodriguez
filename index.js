@@ -1,3 +1,4 @@
+/*
 const boton = document.querySelector(".contenedor-articulos .boton-explorar");
 
 boton.addEventListener("click",function(e){
@@ -66,3 +67,4 @@ for(let i = 0; i < bd.length; i++) {
 });
 };
 
+*/

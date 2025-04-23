@@ -1,5 +1,4 @@
-
-
+/*
 const bd = 
 [
     {
@@ -53,3 +52,4 @@ function mostrarArticulo() {
     }
 }
     mostrarArticulo();
+*/
