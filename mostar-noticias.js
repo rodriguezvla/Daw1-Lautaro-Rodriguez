@@ -14,7 +14,7 @@ import { firebaseConfig } from "./config.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Leer noticias
+// Consultar base de datos
 function cargarNoticias() {
     getDocs(collection(db, "notices")).then(function (instantaneaConsulta) {
       let noticias = "";
@@ -27,15 +27,23 @@ function cargarNoticias() {
         noticias += 
         `<div class="noticia">
         <div class="noticia-imagen">
-            <img src="${bd[i].imagen}" alt="noticia">
+            <img src="${noticia.imagen}" alt="noticia">
         </div>
         <div class="noticia-contenido">
-            <h2>${bd[i].titulo}</h2>
-            <p>${bd[i].descripcion}</p>
+            <h2>${noticia.titulo}</h2>
+            <p>${noticia.texto}</p>
             </div>
         </div>`;
       };
       document.querySelector("#news").innerHTML = noticias;
+
+      const imagenesArticulos = document.querySelectorAll(".noticia-imagen img");
+      for(let i = 0; i < documentos.length; i++) {
+      imagenesArticulos[i].addEventListener("click", function() {
+      window.location.href = `detallNoticia.html?id=${i}`;
+    });
+    };
+
     });
   }
   
@@ -54,12 +62,3 @@ function cargarNoticias() {
   document.addEventListener("DOMContentLoaded", function() {
     cargarNoticias();
   });
-
-const imagenesArticulos = document.querySelectorAll(".noticia-imagen img");
-
-for(let i = 0; i < documentos.length; i++) {
-
-    imagenesArticulos[i].addEventListener("click", function() {
-    window.location.href = `detallNoticia.html?id=${i}`;
-});
-};

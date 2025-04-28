@@ -19,11 +19,7 @@ import { firebaseConfig } from "./config.js";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
-
-
-// Leer noticias
+// Consultar 
 function cargarNoticias() {
     getDocs(collection(db, "notices")).then(function (instantaneaConsulta) {
       let noticias = "";
@@ -34,7 +30,7 @@ function cargarNoticias() {
         let documento = documentos[i];
         let noticia = documento.data();
         noticias += `
-        <div class="tarjeta-articulo" id="${documento.id}}">
+        <div class="tarjeta-articulo" id="${i}">
            <img src="${noticia.imagen}" alt="noticia class="imagen-articulo">
           <h2>${noticia.titulo}</h2>
             <p>${noticia.texto}</p>
@@ -42,8 +38,16 @@ function cargarNoticias() {
         </div>`;
       };
       document.querySelector(".grid-articulos").innerHTML = noticias;
+
+      const imagenesArticulos = document.querySelectorAll(".tarjeta-articulo img");
+      for(let i = 0; i < documentos.length; i++) {
+        
+      imagenesArticulos[i].addEventListener("click", function() {
+      window.location.href = `detallNoticia.html?id=${i}`;
     });
-  }
+    };
+    });
+  };
   
   // Crear noticia
   function crearNoticia(titulo, texto, imagen) {
@@ -60,13 +64,3 @@ function cargarNoticias() {
   document.addEventListener("DOMContentLoaded", function() {
     cargarNoticias();
   });
-
-
-const imagenesArticulos = document.querySelectorAll(".tarjeta-articulo img");
-
-for(let i = 0; i < documentos.length; i++) {
-
-    imagenesArticulos[i].addEventListener("click", function() {
-    window.location.href = `detallNoticia.html?id=${i}`;
-});
-};
